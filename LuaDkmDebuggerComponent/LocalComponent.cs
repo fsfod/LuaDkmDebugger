@@ -2298,7 +2298,7 @@ namespace LuaDkmDebuggerComponent
                 {
                     log.Debug("Detected Lua initialization");
 
-                    if (processData.helperInjected && processData.helperDetected && !processData.helperInitialized && !processData.helperFailed && !processData.helperInitializationWaitUsed)
+                    if (processData.helperInjected && !processData.helperInitialized && !processData.helperFailed && !processData.helperInitializationWaitUsed)
                     {
                         log.Debug("Helper was injected but hasn't been initialized, suspening thread");
 
