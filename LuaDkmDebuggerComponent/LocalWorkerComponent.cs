@@ -47,6 +47,8 @@ namespace LuaDkmDebuggerComponent
                     locations.luaRunError = AttachmentHelpers.TryGetFunctionAddressAtDebugStart(nativeModuleInstance, "luaG_runerror", out _).GetValueOrDefault(0);
                     locations.luaThrow = AttachmentHelpers.TryGetFunctionAddressAtDebugStart(nativeModuleInstance, "luaD_throw", out _).GetValueOrDefault(0);
 
+                    locations.luaRotate = AttachmentHelpers.TryGetFunctionAddressAtDebugStart(nativeModuleInstance, "lua_rotate", out _).GetValueOrDefault(0);
+
                     return DkmCustomMessage.Create(process.Connection, process, MessageToLocal.guid, MessageToLocal.luaSymbols, locations.Encode(), null);
                 }
             }

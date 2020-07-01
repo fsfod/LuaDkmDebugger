@@ -271,6 +271,7 @@ namespace LuaDkmDebuggerComponent
         public ulong luaError = 0;
         public ulong luaRunError = 0;
         public ulong luaThrow = 0;
+        public ulong luaRotate;
 
         public byte[] Encode()
         {
@@ -293,6 +294,7 @@ namespace LuaDkmDebuggerComponent
                     writer.Write(luaError);
                     writer.Write(luaRunError);
                     writer.Write(luaThrow);
+                    writer.Write(luaRotate);
 
                     writer.Flush();
 
@@ -322,6 +324,7 @@ namespace LuaDkmDebuggerComponent
                     luaError = reader.ReadUInt64();
                     luaRunError = reader.ReadUInt64();
                     luaThrow = reader.ReadUInt64();
+                    luaRotate = reader.ReadUInt64();
                 }
             }
 

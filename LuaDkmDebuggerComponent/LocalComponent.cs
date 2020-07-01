@@ -2887,8 +2887,11 @@ namespace LuaDkmDebuggerComponent
                     if (!version.HasValue)
                     {
                         // Warning function was added in 5.4
-                        if (EvaluationHelpers.TryEvaluateNumberExpression($"(int)L->l_G->ud_warn", inspectionSession, thread, frame, DkmEvaluationFlags.TreatAsExpression | DkmEvaluationFlags.NoSideEffects).HasValue)
+                        if (EvaluationHelpers.TryEvaluateNumberExpression($"(int)L->l_G->ud_warn", inspectionSession, thread, frame, DkmEvaluationFlags.TreatAsExpression | DkmEvaluationFlags.NoSideEffects).HasValue) { 
                             version = 504;
+                        } else if (processData.luaLocations.luaRotate != 0) {
+                            version = 503;
+                        }
                     }
 
                     log.Debug("Completed evaluation");
